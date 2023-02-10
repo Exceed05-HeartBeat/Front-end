@@ -1,33 +1,45 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Grid } from '@mui/material';
-import BasicCard from './Card';
-import { CenterFocusStrong } from '@mui/icons-material';
 import { useEffect } from 'react';
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
-import Stack from '@mui/material/Stack';
-import { color } from '@mui/system';
-import { yellow } from '@mui/material/colors';
-import Checkbox from '@mui/material/Checkbox';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-import { styled } from '@mui/material/styles';
-import { DatePicker, Space } from 'antd';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { DatePicker } from 'antd';
+import { Space } from 'antd';
+dayjs.extend(customParseFormat);
+
+const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+const CR=["green","yellow","red"]
+const ST=["Normal","Warning","Danger"]
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [status,setStatus] = useState(1)
+  // dayjs.extend(customParseFormat);
+  const [cr,setCr] = useState(false)
+  const [cr2,setCr2] = useState(2)
+
+  // useEffect(()=>{
+
+  // })
+  const { RangePicker } = DatePicker;
+  const dateFormat = 'YYYY/MM/DD';
+  const weekFormat = 'MM/DD';
+  const monthFormat = 'YYYY/MM';
+  const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
+  const customFormat = (value) => `custom format: ${value.format(dateFormat)}`;
+  const customWeekStartEndFormat = (value) =>
+    `${dayjs(value).startOf('week').format(weekFormat)} ~ ${dayjs(value)
+      .endOf('week')
+      .format(weekFormat)}`;
   // setState({ stateName : updatedStateValue })
-  var [date,setDate] = useState(new Date());
+  const [date,setDate] = useState(new Date());
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
   const vl = {}
   const onChange = (date, dateString) => {
@@ -40,12 +52,16 @@ function App() {
         }
     
     });
+
+  const redBox = {
+    "backgroundColor":"palevioletred"
+  }
+  const StatusBox = {
+    "backgroundColor": CR[cr2]
+  }
   return (
     <>
-      {/* <Grid item xs={6} md={8}>
-      
-     </Grid> */}
-     <Typography
+      <Typography
       component="div"
       variant="body1"
       style={{
@@ -83,7 +99,7 @@ function App() {
           size='small'
           // InputLabelProps={{style: {fontSize: 10}}} 
           label="Name"
-          placeholder="Chawonvit"
+          placeholder="Ex.Chawonvit"
           
           multiline
         />
@@ -97,43 +113,26 @@ function App() {
           size='small'
           // InputLabelProps={{style: {fontSize: 10}}} 
           label="Surname"
-          placeholder="Chomvorawong"
+          placeholder="Ex.Chomvorawong"
           multiline
         />
       </Grid> 
       <Grid item xs={12}></Grid>
       <Grid item xs={6}>
-
+        <div>
+         <div className='BD'>
+          Your Birth Date
+          </div>
           {/* // <label for="start"> */}
-          <Space direction="vertical">
-            <DatePicker onChange={onChange} />
-            {/* <DatePicker onChange={onChange} picker="week" />
-            <DatePicker onChange={onChange} picker="month" />
-            <DatePicker onChange={onChange} picker="quarter" />
-            <DatePicker onChange={onChange} picker="year" /> */}
+          <Space direction="vertical" size={12}>
+   
+           <DatePicker defaultValue={dayjs('01/01/2015', dateFormatList[0])} format={dateFormatList} />
+
           </Space>
-          {/* // onChange={(e) => { */}
-          {/* //   if(e.target.value < 0){ */}
-          {/* //     e.target.value=0
-          //   }
-          //   else { */}
-          {/* //     console.log(e.target.value)
-          //   }
-          // }}
-          // id="outlined-number"
-          // label="Age"
-          // type="number"
-          // placeholder="1"
-          // inputProps={{ min: 0 }}
-          // size='small'
-          // InputLabelProps={{ */}
-          {/* //   shrink: true,
-          // }}
-        /> */}
-        {/* <p>`${e.target.value}`</p> */}
-        {/* <input type="number" min="0"/> */}
+          </div>
       </Grid> 
       <Grid item xs={6}>
+        <br></br>
       <Button style={{backgroundColor: "palevioletred", height: "2rem"}} variant="contained" endIcon={<SendIcon />}>
         Send
       </Button>
@@ -144,11 +143,11 @@ function App() {
      <Box
         sx={{
           bgcolor: (theme) =>
-            theme.palette.mode === 'dark' ? '#101010' : 'pink',
+            theme.palette.mode === 'dark' ? '#101010' : '#ffdfdd',
           color: (theme) => (theme.palette.mode === 'dark' ? 'grey.300' : 'grey.50'),
           border: '1px solid',
           borderColor: (theme) =>
-            theme.palette.mode === 'dark' ? 'grey.800' : 'pink',
+            theme.palette.mode === 'dark' ? 'grey.800' : '#ffdfdd',
           p: 2,
           borderRadius: 2,
           fontSize: '0.875rem',
@@ -165,72 +164,97 @@ function App() {
         Date
         <br></br>
         <div className='tm'>
-        {date.toLocaleDateString()}
+        {new Date().getDate()} {months[new Date().getMonth()]} {new Date().getFullYear()}
         <br></br>
         {date.toLocaleTimeString()}
         </div>
       </div>
       </Box> 
-      <Box
+      <div className='parentBox'>
+        <div className='box'>
+          <div className='status' style={status ? redBox : null}>
+          
+          </div>
+          <div>
+          Normal
+          </div>
+        </div>
+        <div className='box'>
+          <div className='status' style={status ? null: redBox}>
+          
+          </div>
+          <div>
+          Exercise
+          </div>
+        </div>
+      </div>
+      <div className='box_HR'>
+        <div className='HR'>
+          
+        Heart Rate Status
+        
+        </div>
+      </div>
+     
+      <div className='HR_Card'>
+        <div className='Cd' >
+        {ST[cr2]}
+        </div>
+        <div className='St' style={cr? null:StatusBox} > 
+        </div>
+        </div>
+        <Box
         sx={{
           bgcolor: (theme) =>
-            theme.palette.mode === 'dark' ? '#101010' :  'none',
-          color: (theme) => (theme.palette.mode === 'dark' ? 'grey.300' : 'none'),
+            theme.palette.mode === 'dark' ? '#101010' : 'none',
+          color: (theme) => (theme.palette.mode === 'dark' ? 'grey.300' : 'grey.50'),
           border: 'none 1px solid',
           borderColor: (theme) =>
-            theme.palette.mode === 'dark' ? 'grey.800' : 'none',
+            theme.palette.mode === 'dark' ? 'grey.800' : 'pink',
           p: 2,
           borderRadius: 2,
           fontSize: '0.875rem',
           fontWeight: '700',
           position: 'absolute',
-          top: 300,
-          right: '60%',
+          top: 70,
+          left: '36%',
           zIndex: 'tooltip',
           width: '25%'
           // height: ''
         }}
       >
-        <div className='status'>
-       <FormControlLabel
-          value="end"
-          control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: 28,color: 'palevioletred' } }}/>}
-          label="Rest"
-          labelPlacement="end"
-        />
+        <div className='Heart'>
+        HEART BEAT
         </div>
       </Box>
       <Box
         sx={{
           bgcolor: (theme) =>
-            theme.palette.mode === 'dark' ? '#101010' :  'none',
-          color: (theme) => (theme.palette.mode === 'dark' ? 'grey.300' : 'none'),
+            theme.palette.mode === 'dark' ? '#101010' : 'none',
+          color: (theme) => (theme.palette.mode === 'dark' ? 'grey.300' : 'grey.50'),
           border: 'none 1px solid',
           borderColor: (theme) =>
-            theme.palette.mode === 'dark' ? 'grey.800' : 'none',
+            theme.palette.mode === 'dark' ? 'grey.800' : 'pink',
           p: 2,
           borderRadius: 2,
           fontSize: '0.875rem',
           fontWeight: '700',
           position: 'absolute',
-          top: 300,
-          right: '20%',
+          top: 700,
+          left: '85%',
           zIndex: 'tooltip',
-          width: '25%'
+          width: '12%'
           // height: ''
         }}
       >
-        <div className='status'>
-       <FormControlLabel
-          value="end"
-          control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: 28,color: 'palevioletred' } }}/>}
-          label="Exercise"
-          labelPlacement="end"
-        />
+        
+      <button className='History'>
+        <div >
+        History
         </div>
+        </button>
       </Box>
     </>
   )
 }
-
 export default App
