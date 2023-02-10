@@ -119,13 +119,24 @@
   
 }
 
+.bpm{
+  color: black;
+  font-size: 7rem;
+}
+
+.bpmu{
+  color: black;
+  font-size: 4rem;
+}
+
 .Cd{
   /* border: 1px solid black; */
-  font-size: 6rem;
+  font-size: 4rem;
   width: 50%;
   /* margin-top: 30px; */
   display: flex;
   justify-content: left;
+  margin-top: 8rem;
   margin-left: 1.3rem;
 }
 
