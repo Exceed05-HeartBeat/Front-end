@@ -18,9 +18,10 @@ async function fetchData(params) {
   try {
     const url = `https://ecourse.cpe.ku.ac.th/exceed05/front/${params}`
     const result = await axios.get(url)
+    console.log(result)
     setData(result.data)
   }catch (error) {
-    console.log("error")
+    console.log(error)
   }
 }
 
@@ -55,7 +56,7 @@ async function fetchData(params) {
 // //Excercise heartrate
 // useEffect(() => {
 //   try {
-//       const url = "https://ecourse.cpe.ku.ac.th/exceed05/front/get_excercise_heartrate"
+//       const url = "https://ecourse.cpe.ku.ac.th/exceed05/front/get_exercise_heartrate"
 //       fetch(url).then((res_excercise_data) => {
 //           if (res_excercise_data.status == 400) {
 //               console.log("undefind")
@@ -99,9 +100,9 @@ async function fetchData(params) {
       <div className='headerdiv'><h1 className='header'>History</h1></div>
       <div className='content_center'>
         <div className='button'>
-          <button onClick={() => fetchData("get_all_heartrate")}>All</button>
-          <button onClick={() => fetchData("")}>Normal</button>
-          <button onClick={() => fetchData("")}>Exercise</button>
+          <button className='button_size' onClick={() => fetchData("get_all_heartrate")}>All</button>
+          <button className='button_size' onClick={() => fetchData("get_normal_heartrate")}>Normal</button>
+          <button className='button_size' onClick={() => fetchData("get_exercise_heartrate")}>Exercise</button>
         </div>
         <div className='box_table'>
           <table className='table'>
@@ -126,7 +127,7 @@ async function fetchData(params) {
       </div>
       <div style={{ textAlign: 'center' , marginTop: '20px'}}>
       <a href='/'>
-      <button style={{ borderRadius: '20px', padding: '10px 20px' }}>
+      <button className='back_button' style={{ borderRadius: '20px', padding: '10px 20px' }}>
           <span style={{ transform: 'rotate(180deg)' }}>&larr;</span> Back
         </button>
       </a>  

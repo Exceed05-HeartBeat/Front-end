@@ -63,6 +63,14 @@
 
   }
 
+  .button_size {
+    border-radius: 20px;
+    font-size: 28px;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    background-color: palevioletred;
+  }
+
   .box_table {
     margin-top: 2rem;
     padding: 0.4rem;
@@ -96,9 +104,12 @@
     cursor: pointer;
     font-size: 32px;
   }
+
+  .back_button {
+    font-size: 28px;
+  }
   
   .back-button:before {
     content: "\2190";
     margin-right: 10px;
   }
-
