@@ -24,6 +24,7 @@
   border: 0.2rem solid black;
   padding: 1rem;
   background-color: palevioletred;
+  transition: all 0.3s ease-in !important;
   border-radius: 2rem;
 }
 
@@ -103,6 +104,24 @@
   border-radius: 2rem;
 }
 
+.btn {
+  background-color: palevioletred !important;
+  transition: all 0.3s ease-in !important;
+}
+
+.btn:hover {
+  background-color: plum!important;
+}
+
+.Send{
+  background-color: palevioletred;
+  height: 2rem
+}
+
+.Send:hover{
+  background-color: plum; 
+}
+
 .Heart{
   font-size: 5rem;
   color: black;
@@ -160,6 +179,7 @@
 
 .send{
   background-color: palevioletred;
+  
 }
 
 body{

@@ -10,26 +10,47 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-// import { DatePicker } from 'antd';
-// import { Space } from 'antd';
 import axios from 'axios'
 import { DatePicker, Space } from 'antd';
+import { makeStyles } from '@mui/styles';
 
 dayjs.extend(customParseFormat);
 
 const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
 const CR=["green","yellow","red"]
 const ST=["Normal","Warning","Danger"]
+// const useStyles = makeStyles({
+//     btn: {
+//         // backgroundColor: "palevioletred",
+//         backgroundColor: 'red',
+//         height: "2rem",
+//         '&:hover': {
+//             backgroundColor: '#fff',
+//         }
+//     },
+//   });
 
+const useStyles = makeStyles({
+    btn: {
+        background: "#DB7093",
+    //   background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      border: 0,
+      borderRadius: 3,
+      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+      color: 'white',
+      height: 38,
+    },
+  });
 
 
 
 function Home() {
+  const classes = useStyles();
   const [status,setStatus] = useState(0)
   // dayjs.extend(customParseFormat);
   const [cr,setCr] = useState(false)
   const [cr2,setCr2] = useState(0)
-  const [bpm,setBpm] = useState(60)
+  const [bpm,setBpm] = useState(-1)
   const [dated,setDated] = useState("")
   const [name,setName] = useState("")
   // useEffect(()=>{
@@ -62,6 +83,7 @@ function Home() {
     const onChange = (date, dateString) => {
     console.log(date, dateString);
   };
+  
   useEffect(() => {
     try {
         var timer = setInterval(()=>setDate(new Date()), 1000 )
@@ -193,7 +215,7 @@ function Home() {
       </Grid> 
       <Grid item xs={6}>
         <br></br>
-      <Button onClick={Submit} style={{backgroundColor: "palevioletred", height: "2rem"} } variant="contained" endIcon={<SendIcon />}>
+      <Button onClick={Submit} className={"btn"} variant="contained" endIcon={<SendIcon />}>
         
         Send
       </Button>
@@ -257,42 +279,25 @@ function Home() {
         
         </div>
       </div>
-      <Box
-        sx={{
-          bgcolor: (theme) =>
-            theme.palette.mode === 'dark' ? '#101010' : 'none',
-          color: (theme) => (theme.palette.mode === 'dark' ? 'grey.300' : 'none'),
-          border: '1px solid none',
-          borderColor: (theme) =>
-            theme.palette.mode === 'dark' ? 'grey.800' : 'none',
-          p: 2,
-          borderRadius: 2,
-          fontSize: '0.875rem',
-          fontWeight: '700',
-          position: 'absolute',
-          top: 540,
-          left: '25%',
-          zIndex: 'tooltip',
-          width: '25%',
-    
-        }}
-      >
-      {/* <div className='bpm'>
-      {bpm} 
-      {ST[cr2]}
-      </div> */}
-      </Box>
       
       <div className='HR_Card'>
-        <div className='Cd' >
-            <span className='bbm'>{bpm}  <span className='bpmu'>bpm</span></span> 
-            <span>{ST[cr2]}</span>
-        </div>
+        {bpm == -1 ? 
+            <div className='Cd' >
+                <span className='bbm' >??? <span className='bpmu'>bpm</span></span> 
+                <span>Not input</span>
+            </div> : 
+            <div className='Cd' >
+                <span className='bbm' >{bpm}  <span className='bpmu'>bpm</span></span> 
+                <span>{ST[cr2]}</span>
+            </div> }
+        
         
         {/* <div className='bpmu'>bpm</div> */}
         
         <div className='statusbpm'>
-            <div className='St' style={cr? null:StatusBox} > </div>
+            {bpm == -1 ? 
+            <div className='St'> </div> : 
+            <div className='St' style={cr? null:StatusBox} > </div> }
             </div>
         </div>
         
