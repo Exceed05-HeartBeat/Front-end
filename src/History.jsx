@@ -47,9 +47,11 @@ const History = () => {
        </table>
       </div>
       <div style={{ textAlign: 'center' , marginTop: '20px'}}>
+      <a href='/'>
       <button style={{ borderRadius: '20px', padding: '10px 20px' }}>
           <span style={{ transform: 'rotate(180deg)' }}>&larr;</span> Back
         </button>
+      </a>  
       </div>
     </div>
     </div>
