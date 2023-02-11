@@ -10,9 +10,11 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import { DatePicker } from 'antd';
-import { Space } from 'antd';
+// import { DatePicker } from 'antd';
+// import { Space } from 'antd';
 import axios from 'axios'
+import { DatePicker, Space } from 'antd';
+
 dayjs.extend(customParseFormat);
 
 const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
@@ -54,7 +56,10 @@ function Home() {
   const [date,setDate] = useState(new Date());
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
   const vl = {}
-  const onChange = (date, dateString) => {
+//   const onChange = (date, dateString) => {
+//     console.log(date, dateString);
+//   };
+    const onChange = (date, dateString) => {
     console.log(date, dateString);
   };
   useEffect(() => {
@@ -179,8 +184,8 @@ function Home() {
           </div>
 
           <Space direction="vertical" size={12}>
-          <DatePicker onChange={(date,dateString)=>setDated(dateString) } defaultValue={dayjs('2015/01/01', dateFormat)} format={dateFormat} />
-   
+          {/* <DatePicker onChange={(date,dateString)=>setDated(dateString) } defaultValue={dayjs('YYYY-MM-DD', dateFormat)} format={dateFormat} /> */}
+          <DatePicker onChange={onChange} />
            
 
           </Space>
@@ -272,41 +277,25 @@ function Home() {
     
         }}
       >
-      <div className='bpm'>
+      {/* <div className='bpm'>
       {bpm} 
-      </div>
+      {ST[cr2]}
+      </div> */}
       </Box>
-      <Box
-        sx={{
-          bgcolor: (theme) =>
-            theme.palette.mode === 'dark' ? '#101010' : 'none',
-          color: (theme) => (theme.palette.mode === 'dark' ? 'grey.300' : 'none'),
-          border: '1px solid none',
-          borderColor: (theme) =>
-            theme.palette.mode === 'dark' ? 'grey.800' : 'none',
-          p: 2,
-          borderRadius: 2,
-          fontSize: '0.875rem',
-          fontWeight: '700',
-          position: 'absolute',
-          top: 580,
-          left: '40%',
-          zIndex: 'tooltip',
-          width: '25%',
-    
-        }}
-      >
-      <div className='bpmu'>
-      bpm
-      </div>
-      </Box>
+      
       <div className='HR_Card'>
         <div className='Cd' >
-        {ST[cr2]}
+            <span className='bbm'>{bpm}  <span className='bpmu'>bpm</span></span> 
+            <span>{ST[cr2]}</span>
         </div>
-        <div className='St' style={cr? null:StatusBox} > 
+        
+        {/* <div className='bpmu'>bpm</div> */}
+        
+        <div className='statusbpm'>
+            <div className='St' style={cr? null:StatusBox} > </div>
+            </div>
         </div>
-        </div>
+        
         <Box
         sx={{
           bgcolor: (theme) =>

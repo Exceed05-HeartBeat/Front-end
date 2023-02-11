@@ -89,9 +89,9 @@
 
 .HR_Card{
   border: 1px solid black;
-  width: 40rem;
+  width: 36rem;
   height: 15rem;
-  margin-left: 20rem;
+  margin-left: 22rem;
 
   display: flex;
   justify-content: center;
@@ -99,7 +99,7 @@
   align-items: center;
   margin-top: 2rem;
   background-color: palevioletred;
-  gap: 6rem;
+  gap: 1rem;
   border-radius: 2rem;
 }
 
@@ -119,23 +119,39 @@
   
 }
 
+.bbm{
+  font-size: 6rem;
+}
+
 .bpm{
   color: black;
   font-size: 7rem;
+  /* border: 1px solid black; */
 }
 
 .bpmu{
   color: black;
   font-size: 4rem;
+  
+}
+
+.statusbpm{
+  /* border: 1px solid black; */
+  display: flex;
+  gap: 2rem;
 }
 
 .Cd{
   /* border: 1px solid black; */
   font-size: 4rem;
   width: 50%;
+  /* height: 500px; */
+  transform: translateY(-55px);
+  height: transparent;
   /* margin-top: 30px; */
   display: flex;
-  justify-content: left;
+  flex-direction: column;
+  /* justify-content: left; */
   margin-top: 8rem;
   margin-left: 1.3rem;
 }
