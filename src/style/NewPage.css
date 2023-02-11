@@ -1,0 +1,83 @@
+body {
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .body {
+    width: 100%;
+  }
+  
+  .header {
+    background-color: #FEA3AA;
+    padding-right: 0rem;
+    padding-left: 0rem;
+    font-size: 8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 50px;
+    margin: auto;
+  }
+
+  .headerdiv {
+    background-color: #FEA3AA;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+  }
+  
+  .button {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 0 ;
+    justify-content: space-between;
+    font-size: 32px;
+    cursor: pointer;
+
+  }
+  
+  .table {
+    margin-top: 50px;
+    border-collapse: collapse;
+    display: table;
+    width: fit-content;
+    justify-content: center;
+  }
+  
+  .table td, .table th {
+    border: 1px solid black;
+    padding: 8px;
+  }
+  
+  .back-button {
+    background-color: white;
+    border: 1px solid #FEA3AA;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 32px;
+  }
+  
+  .back-button:before {
+    content: "\2190";
+    margin-right: 10px;
+  }
+
