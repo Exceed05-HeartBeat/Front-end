@@ -82,6 +82,7 @@ function Home() {
 //   };
     const onChange = (date, dateString) => {
     console.log(date, dateString);
+    setDated(dateString)
   };
   useEffect(() => {
     try {
@@ -121,7 +122,7 @@ function Home() {
     });
 
   const redBox = {
-    "backgroundColor":"palevioletred"
+    "backgroundColor":"#fea3aa"
   }
   const StatusBox = {
     "backgroundColor": CR[cr2]
@@ -194,10 +195,13 @@ function Home() {
           <Space direction="vertical" size={12}>
           {/* <DatePicker onChange={(date,dateString)=>setDated(dateString) } defaultValue={dayjs('YYYY-MM-DD', dateFormat)} format={dateFormat} /> */}
           <DatePicker onChange={onChange} />
+          
            
 
           </Space>
+          
           </div>
+          
       </Grid> 
       <Grid item xs={6}>
         <br></br>

@@ -21,9 +21,9 @@
 .History{
   color: black;
   font-size: 2rem;
-  border: 0.2rem solid black;
+  border: 0.5rem solid white;
   padding: 1rem;
-  background-color: palevioletred;
+  background-color: #fea3aa;
   transition: all 0.3s ease-in !important;
   border-radius: 2rem;
 }
@@ -33,13 +33,14 @@
 }
 
 .Date{
-  border: 0.5rem black solid;
+  border: 0.5rem white solid;
   font-size: 500%;
   padding: 3rem;
   color: black;
-  background-color: palevioletred;
+  background-color: #fea3aa;
   height: 10rem;
   padding-top: 1rem;
+  border-radius: 2rem;
   padding-bottom: 0.6rem;
 }
 
@@ -90,7 +91,7 @@
 }
 
 .HR_Card{
-  border: 1px solid black;
+  border: 0.5rem solid white;
   width: 36rem;
   height: 15rem;
   margin-left: 22rem;
@@ -100,13 +101,13 @@
   flex-direction: row;
   align-items: center;
   margin-top: 2rem;
-  background-color: palevioletred;
+  background-color: #fea3aa;
   gap: 1rem;
   border-radius: 2rem;
 }
 
 .btn {
-  background-color: palevioletred !important;
+  background-color: #fea3aa !important;
   transition: all 0.3s ease-in !important;
 }
 
@@ -115,7 +116,7 @@
 }
 
 .Send{
-  background-color: palevioletred;
+  background-color: #fea3aa;
   height: 2rem
 }
 
@@ -179,7 +180,7 @@
 
 
 .send{
-  background-color: palevioletred;
+  background-color: #fea3aa;
   
 }
 
