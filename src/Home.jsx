@@ -83,9 +83,9 @@ function Home() {
     const onChange = (date, dateString) => {
     console.log(date, dateString);
   };
-  
   useEffect(() => {
     try {
+        
         var timer = setInterval(()=>setDate(new Date()), 1000 )
         var syncStatus = setInterval(async () => {
             let res = await axios.get("https://ecourse.cpe.ku.ac.th/exceed05/front/get_status")
@@ -96,13 +96,18 @@ function Home() {
             let d=res3.data.current_heartrate
             // let date = 
             // let sen = await axios.post(`https://ecourse.cpe.ku.ac.th/exceed05/front/data `,date)
-
             console.log(a)
             setStatus(b)
             setCr2(a)
             setBpm(d) 
+            // if(cr2==2){
+            //     alert("Danger!!!!");   
+            // }
+            
             
         }, 1000) 
+        
+      
         return function cleanup() {
             clearInterval(timer)
             clearInterval(syncStatus)
@@ -114,25 +119,6 @@ function Home() {
     }
     
     });
-// useEffect(() => {
-//     try {
-//         const url = "https://ecourse.cpe.ku.ac.th/exceed05/front/get_status"
-//         fetch(url).then((res_data) => {
-//             if (res_data.status == 400) {
-//                 console.log("undefind")
-//             }
-//             else {
-//                 res_data.json().then((res_all_data) => {
-//                     console.log("ok")
-//                 })
-//             }
-//         }
-//         )
-//     }
-//     catch (error) {
-//         console.log("error")
-//     }
-// },[])
 
   const redBox = {
     "backgroundColor":"palevioletred"

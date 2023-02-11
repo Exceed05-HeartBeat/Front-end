@@ -75,6 +75,7 @@
   width: 4rem;
   height: 4rem;
   background-color: white;
+  border: 0.2rem solid black;
   border-radius: 100%;
 }
 
@@ -131,7 +132,7 @@
   width: 6rem;
   height: 6rem;
   /* margin-top: 4.3rem; */
-  background-color:#ffdfdd;
+  background-color: white;
   border-radius: 5rem;
   margin-right: 1rem;
   border: 3px solid black;
