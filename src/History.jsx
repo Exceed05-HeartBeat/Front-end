@@ -1,50 +1,128 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './style/History.css'
+
+
 const History = () => {
-  const [filter, setFilter] = useState('all');
+  // const [filter, setFilter] = useState('all');
+  const [data,setData] = useState([])
+  const [page , setPage] = useState(0)
 
-  const data = [
-    { date: '10-Feb-2023', time: '10:00 AM', duration: '30 min', type: 'Normal' },
-    { date: '9-Feb-2023', time: '11:00 AM', duration: '45 min', type: 'Exercise' },
-    { date: '8-Feb-2023', time: '12:00 PM', duration: '60 min', type: 'Normal' },
-    { date: '7-Feb-2023', time: '1:00 PM', duration: '30 min', type: 'Exercise' },
-  ];
+//All heartrate
+  useEffect(() => {
+    fetchData("get_all_heartrate")
+},[])
 
-  const filteredData = data.filter(item => {
-    if (filter === 'all') return true;
-    return item.type === filter;
-  });
 
+async function fetchData(params) {
+  try {
+    const url = `https://ecourse.cpe.ku.ac.th/exceed05/front/${params}`
+    const result = await axios.get(url)
+    setData(result.data)
+  }catch (error) {
+    console.log("error")
+  }
+}
+
+// //Normal heartrate
+// useEffect(() => {
+//   try {
+//       const url = "https://ecourse.cpe.ku.ac.th/exceed05/front/get_normal_heartrate"
+//       fetch(url).then((res_normal_data) => {
+//           if (res_normal_data.status == 400) {
+//               console.log("undefind")
+//           }
+//           else {
+//               res_normal_data.json().then((res_all_normal_data) => {
+//                 // for (let i = 0; i < ) {
+//                 //   console.log(res_all_data)
+//                 console.log(res_all_normal_data.length)
+//                 for (let i = 0; i < res_all_normal_data.length; i++) {
+//                   console.log(res_all_normal_data[i])
+//                   //{timestamp:..., bpm:...}
+//                 }
+//               }
+//             )
+//           }
+//       })
+//   }
+//   catch (error) {
+//       console.log("error")
+//   }
+// },[])
+
+
+// //Excercise heartrate
+// useEffect(() => {
+//   try {
+//       const url = "https://ecourse.cpe.ku.ac.th/exceed05/front/get_excercise_heartrate"
+//       fetch(url).then((res_excercise_data) => {
+//           if (res_excercise_data.status == 400) {
+//               console.log("undefind")
+//           }
+//           else {
+//               res_excercise_data.json().then((res_all_excercise_data) => {
+//                 // for (let i = 0; i < ) {
+//                 //   console.log(res_all_data)
+//                 console.log(res_all_excercise_data.length)
+//                 for (let i = 0; i < res_all_excercise_data.length; i++) {
+//                   console.log(res_all_excercise_data[i])
+//                   //{timestamp:..., bpm:...}
+//                 }
+//               }
+//             )
+//           }
+//       })
+//   }
+//   catch (error) {
+//       console.log("error")
+//   }
+// },[])
+
+  // const data = [
+  //   { date: '10-Feb-2023', time: '10:00 AM', duration: '30 min', type: 'Normal' },
+  //   { date: '9-Feb-2023', time: '11:00 AM', duration: '45 min', type: 'Exercise' },
+  //   { date: '8-Feb-2023', time: '12:00 PM', duration: '60 min', type: 'Normal' },
+  //   { date: '7-Feb-2023', time: '1:00 PM', duration: '30 min', type: 'Exercise' },
+  //   { date: '7-Feb-2023', time: '1:00 PM', duration: '30 min', type: 'Exercise' },
+  //   { date: '7-Feb-2023', time: '1:00 PM', duration: '30 min', type: 'Exercise' },
+  //   { date: '7-Feb-2023', time: '1:00 PM', duration: '30 min', type: 'Exercise' },
+  //   { date: '7-Feb-2023', time: '1:00 PM', duration: '30 min', type: 'Exercise' },
+  //   { date: '7-Feb-2023', time: '1:00 PM', duration: '30 min', type: 'Exercise' },
+  // ];
+
+  
+  console.log(data)
   return (
     <div className='content_parent'>
     <div className='content_history'>
       <div className='headerdiv'><h1 className='header'>History</h1></div>
       <div className='content_center'>
-      <div className='button'>
-        <button onClick={() => setFilter('all')}>All</button>
-        <button onClick={() => setFilter('Normal')}>Normal</button>
-        <button onClick={() => setFilter('Exercise')}>Exercise</button>
-      </div>
-      <table className='table'>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Duration</th>
-            <th>Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredData.map(item => (
-            <tr key={item.date + item.time}>
-              <td>{item.date}</td>
-              <td>{item.time}</td>
-              <td>{item.duration}</td>
-              <td>{item.type}</td>
-            </tr>
-          ))}
-        </tbody>
-       </table>
+        <div className='button'>
+          <button onClick={() => fetchData("get_all_heartrate")}>All</button>
+          <button onClick={() => fetchData("")}>Normal</button>
+          <button onClick={() => fetchData("")}>Exercise</button>
+        </div>
+        <div className='box_table'>
+          <table className='table'>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>BPM</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((e,i) => (
+                <tr key={i}>
+                  <td>{e.date}</td>
+                  <td>{e.time}</td>
+                  <td>{e.bpm}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
       <div style={{ textAlign: 'center' , marginTop: '20px'}}>
       <a href='/'>

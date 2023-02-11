@@ -4,7 +4,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
   }
 
   body {
@@ -12,9 +11,9 @@
   }
 
   .content_history {
-    max-width: 1000px;
+    /* border: 1px solid black; */
+    max-width: 1300px;
     width: 100%;
-  
   }
   
   .header {
@@ -31,6 +30,8 @@
   }
 
   .headerdiv {
+    border-radius: 20px;
+    margin-top: 1rem;
     background-color: palevioletred;
     width: 100%;
     display: flex;
@@ -61,12 +62,20 @@
     cursor: pointer;
 
   }
+
+  .box_table {
+    margin-top: 2rem;
+    padding: 0.4rem;
+    height: 385px;
+    max-width: 700px;
+    width: 100%;
+    overflow-y: scroll;
+  }
   
   .table {
-    margin-top: 50px;
     border-collapse: collapse;
     display: table;
-    width: fit-content;
+    width: 100%;
     justify-content: center;
   }
   
