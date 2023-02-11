@@ -114,7 +114,7 @@ function Home() {
     "backgroundColor": CR[cr2]
   }
   return (
-    <>
+    <div className='home-root'>
       <Typography
       component="div"
       variant="body1"
@@ -360,7 +360,7 @@ function Home() {
         
       </Box>
       
-    </>
+    </div>
   )
 }
 export default Home
