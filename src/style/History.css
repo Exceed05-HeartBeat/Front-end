@@ -17,7 +17,7 @@
   }
   
   .header {
-    background-color: palevioletred;
+    background-color: #fea3aa;
     padding-right: 0rem;
     padding-left: 0rem;
     font-size: 8rem;
@@ -32,11 +32,12 @@
   .headerdiv {
     border-radius: 20px;
     margin-top: 1rem;
-    background-color: palevioletred;
+    background-color: #fea3aa;
     width: 100%;
     display: flex;
     justify-content: center;
     text-align: center;
+    border: 0.5rem solid white;
   }
 
   .content_center {
@@ -68,7 +69,8 @@
     font-size: 28px;
     margin-top: 2rem;
     margin-left: 1rem;
-    background-color: palevioletred;
+    background-color: #fea3aa;
+    border: 0.5rem solid white;
   }
 
   .box_table {
