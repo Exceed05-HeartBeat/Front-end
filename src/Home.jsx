@@ -265,54 +265,8 @@ function Home() {
         
         </div>
       </div>
-      <Box
-        sx={{
-          bgcolor: (theme) =>
-            theme.palette.mode === 'dark' ? '#101010' : 'none',
-          color: (theme) => (theme.palette.mode === 'dark' ? 'grey.300' : 'none'),
-          border: '1px solid none',
-          borderColor: (theme) =>
-            theme.palette.mode === 'dark' ? 'grey.800' : 'none',
-          p: 2,
-          borderRadius: 2,
-          fontSize: '0.875rem',
-          fontWeight: '700',
-          position: 'absolute',
-          top: 540,
-          left: '26%',
-          zIndex: 'tooltip',
-          width: '25%',
-    
-        }}
-      >
-      <div className='bpm'>
-      {bpm} 
-      </div>
-      </Box>
-      <Box
-        sx={{
-          bgcolor: (theme) =>
-            theme.palette.mode === 'dark' ? '#101010' : 'none',
-          color: (theme) => (theme.palette.mode === 'dark' ? 'grey.300' : 'none'),
-          border: '1px solid none',
-          borderColor: (theme) =>
-            theme.palette.mode === 'dark' ? 'grey.800' : 'none',
-          p: 2,
-          borderRadius: 2,
-          fontSize: '0.875rem',
-          fontWeight: '700',
-          position: 'absolute',
-          top: 580,
-          left: '40%',
-          zIndex: 'tooltip',
-          width: '25%',
-    
-        }}
-      >
-      <div className='bpmu'>
-      bpm
-      </div>
-      </Box>
+      
+      
       <div className='HR_Card'>
         {bpm == -1 ? 
             <div className='Cd' >
