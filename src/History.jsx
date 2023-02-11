@@ -108,6 +108,7 @@ async function fetchData(params) {
           <table className='table'>
             <thead>
               <tr>
+                <th>No.</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>BPM</th>
@@ -116,6 +117,7 @@ async function fetchData(params) {
             <tbody>
               {data.map((e,i) => (
                 <tr key={i}>
+                  <td>{i+1}</td>
                   <td>{e.date}</td>
                   <td>{e.time}</td>
                   <td>{e.bpm}</td>
