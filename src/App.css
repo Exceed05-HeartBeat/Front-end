@@ -1,4 +1,4 @@
-#root {
+.home-root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -18,6 +18,19 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.History{
+  color: black;
+  font-size: 2rem;
+  border: 0.2rem solid black;
+  padding: 1rem;
+  background-color: palevioletred;
+  border-radius: 2rem;
+}
+
+.History:hover{
+  background-color: plum;
+}
+
 .Date{
   border: 0.5rem black solid;
   font-size: 500%;
@@ -26,18 +39,115 @@
   background-color: palevioletred;
   height: 10rem;
   padding-top: 1rem;
+  padding-bottom: 0.6rem;
+}
+
+.BD{
+  color: black;
+  font-size: 0.3cm;
+  width: 9rem;
+  padding-left: 0.3cm;
+  margin-bottom: 0.3rem;
+}
+
+.parentBox{
+  /* border: 1px solid black; */
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 11rem;
+  display: flex;
+  justify-content: center;
+  gap: 10rem;
+}
+
+.box{
+  /* border: 1px solid black; */
+  display: flex;
+  font-size: 2rem;
+  gap: 1rem;
+  align-items: center;
 }
 
 .status{
   color: black;
+  width: 4rem;
+  height: 4rem;
+  background-color: white;
+  border-radius: 100%;
 }
+
+.box_HR{
+  /* border: 1px solid black; */
+  margin-top: 4rem;
+}
+
+.HR{
+  /* border: 1px solid black; */
+  font-size: 3rem;
+}
+
+.HR_Card{
+  border: 1px solid black;
+  width: 40rem;
+  height: 15rem;
+  margin-left: 20rem;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: palevioletred;
+  gap: 6rem;
+  border-radius: 2rem;
+}
+
+.Heart{
+  font-size: 5rem;
+  color: black;
+}
+
+.St{
+  width: 6rem;
+  height: 6rem;
+  /* margin-top: 4.3rem; */
+  background-color:#ffdfdd;
+  border-radius: 5rem;
+  margin-right: 1rem;
+  border: 3px solid black;
+  
+}
+
+.bpm{
+  color: black;
+  font-size: 7rem;
+}
+
+.bpmu{
+  color: black;
+  font-size: 4rem;
+}
+
+.Cd{
+  /* border: 1px solid black; */
+  font-size: 4rem;
+  width: 50%;
+  /* margin-top: 30px; */
+  display: flex;
+  justify-content: left;
+  margin-top: 8rem;
+  margin-left: 1.3rem;
+}
+
+
 
 .send{
   background-color: palevioletred;
 }
 
 body{
-  background-color: pink;
+  background-color: #ffdfdd;
 }
 
 .tm{

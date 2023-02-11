@@ -1,5 +1,5 @@
-body {
-    background-color: pink;
+.content_parent {
+    background-color: #ffdfdd;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,12 +7,18 @@ body {
     height: 100vh;
   }
 
-  .body {
+  body {
+    background-color: #ffdfdd;
+  }
+
+  .content_history {
+    max-width: 1000px;
     width: 100%;
+  
   }
   
   .header {
-    background-color: #FEA3AA;
+    background-color: palevioletred;
     padding-right: 0rem;
     padding-left: 0rem;
     font-size: 8rem;
@@ -25,11 +31,17 @@ body {
   }
 
   .headerdiv {
-    background-color: #FEA3AA;
+    background-color: palevioletred;
     width: 100%;
     display: flex;
     justify-content: center;
     text-align: center;
+  }
+
+  .content_center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .buttons {

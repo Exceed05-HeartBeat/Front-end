@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import './style/NewPage.css'
-
+import './style/History.css'
 const History = () => {
   const [filter, setFilter] = useState('all');
 
@@ -17,8 +16,10 @@ const History = () => {
   });
 
   return (
-    <div className='body'>
+    <div className='content_parent'>
+    <div className='content_history'>
       <div className='headerdiv'><h1 className='header'>History</h1></div>
+      <div className='content_center'>
       <div className='button'>
         <button onClick={() => setFilter('all')}>All</button>
         <button onClick={() => setFilter('Normal')}>Normal</button>
@@ -43,12 +44,14 @@ const History = () => {
             </tr>
           ))}
         </tbody>
-      </table>
-      <div style={{ textAlign: 'center' }}>
+       </table>
+      </div>
+      <div style={{ textAlign: 'center' , marginTop: '20px'}}>
       <button style={{ borderRadius: '20px', padding: '10px 20px' }}>
           <span style={{ transform: 'rotate(180deg)' }}>&larr;</span> Back
         </button>
       </div>
+    </div>
     </div>
   );
 };
