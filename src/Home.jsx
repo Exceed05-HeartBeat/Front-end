@@ -10,24 +10,47 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import { DatePicker } from 'antd';
-import { Space } from 'antd';
 import axios from 'axios'
+import { DatePicker, Space } from 'antd';
+import { makeStyles } from '@mui/styles';
+
 dayjs.extend(customParseFormat);
 
 const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
 const CR=["green","yellow","red"]
 const ST=["Normal","Warning","Danger"]
+// const useStyles = makeStyles({
+//     btn: {
+//         // backgroundColor: "palevioletred",
+//         backgroundColor: 'red',
+//         height: "2rem",
+//         '&:hover': {
+//             backgroundColor: '#fff',
+//         }
+//     },
+//   });
 
+const useStyles = makeStyles({
+    btn: {
+        background: "#DB7093",
+    //   background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      border: 0,
+      borderRadius: 3,
+      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+      color: 'white',
+      height: 38,
+    },
+  });
 
 
 
 function Home() {
+  const classes = useStyles();
   const [status,setStatus] = useState(0)
   // dayjs.extend(customParseFormat);
   const [cr,setCr] = useState(false)
   const [cr2,setCr2] = useState(0)
-  const [bpm,setBpm] = useState(60)
+  const [bpm,setBpm] = useState(-1)
   const [dated,setDated] = useState("")
   const [name,setName] = useState("")
   // useEffect(()=>{
@@ -54,11 +77,15 @@ function Home() {
   const [date,setDate] = useState(new Date());
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
   const vl = {}
-  const onChange = (date, dateString) => {
+//   const onChange = (date, dateString) => {
+//     console.log(date, dateString);
+//   };
+    const onChange = (date, dateString) => {
     console.log(date, dateString);
   };
   useEffect(() => {
     try {
+        
         var timer = setInterval(()=>setDate(new Date()), 1000 )
         var syncStatus = setInterval(async () => {
             let res = await axios.get("https://ecourse.cpe.ku.ac.th/exceed05/front/get_status")
@@ -69,13 +96,18 @@ function Home() {
             let d=res3.data.current_heartrate
             // let date = 
             // let sen = await axios.post(`https://ecourse.cpe.ku.ac.th/exceed05/front/data `,date)
-
             console.log(a)
             setStatus(b)
             setCr2(a)
             setBpm(d) 
+            // if(cr2==2){
+            //     alert("Danger!!!!");   
+            // }
+            
             
         }, 1000) 
+        
+      
         return function cleanup() {
             clearInterval(timer)
             clearInterval(syncStatus)
@@ -87,25 +119,6 @@ function Home() {
     }
     
     });
-// useEffect(() => {
-//     try {
-//         const url = "https://ecourse.cpe.ku.ac.th/exceed05/front/get_status"
-//         fetch(url).then((res_data) => {
-//             if (res_data.status == 400) {
-//                 console.log("undefind")
-//             }
-//             else {
-//                 res_data.json().then((res_all_data) => {
-//                     console.log("ok")
-//                 })
-//             }
-//         }
-//         )
-//     }
-//     catch (error) {
-//         console.log("error")
-//     }
-// },[])
 
   const redBox = {
     "backgroundColor":"palevioletred"
@@ -179,8 +192,8 @@ function Home() {
           </div>
 
           <Space direction="vertical" size={12}>
-          <DatePicker onChange={(date,dateString)=>setDated(dateString) } defaultValue={dayjs('2015/01/01', dateFormat)} format={dateFormat} />
-   
+          {/* <DatePicker onChange={(date,dateString)=>setDated(dateString) } defaultValue={dayjs('YYYY-MM-DD', dateFormat)} format={dateFormat} /> */}
+          <DatePicker onChange={onChange} />
            
 
           </Space>
@@ -188,7 +201,7 @@ function Home() {
       </Grid> 
       <Grid item xs={6}>
         <br></br>
-      <Button onClick={Submit} style={{backgroundColor: "palevioletred", height: "2rem"} } variant="contained" endIcon={<SendIcon />}>
+      <Button onClick={Submit} className={"btn"} variant="contained" endIcon={<SendIcon />}>
         
         Send
       </Button>
@@ -266,7 +279,7 @@ function Home() {
           fontWeight: '700',
           position: 'absolute',
           top: 540,
-          left: '25%',
+          left: '26%',
           zIndex: 'tooltip',
           width: '25%',
     
@@ -301,12 +314,26 @@ function Home() {
       </div>
       </Box>
       <div className='HR_Card'>
-        <div className='Cd' >
-        {ST[cr2]}
+        {bpm == -1 ? 
+            <div className='Cd' >
+                <span className='bbm' >??? <span className='bpmu'>bpm</span></span> 
+                <span>Not input</span>
+            </div> : 
+            <div className='Cd' >
+                <span className='bbm' >{bpm}  <span className='bpmu'>bpm</span></span> 
+                <span>{ST[cr2]}</span>
+            </div> }
+        
+        
+        {/* <div className='bpmu'>bpm</div> */}
+        
+        <div className='statusbpm'>
+            {bpm == -1 ? 
+            <div className='St'> </div> : 
+            <div className='St' style={cr? null:StatusBox} > </div> }
+            </div>
         </div>
-        <div className='St' style={cr? null:StatusBox} > 
-        </div>
-        </div>
+        
         <Box
         sx={{
           bgcolor: (theme) =>

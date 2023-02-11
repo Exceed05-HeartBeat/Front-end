@@ -24,6 +24,7 @@
   border: 0.2rem solid black;
   padding: 1rem;
   background-color: palevioletred;
+  transition: all 0.3s ease-in !important;
   border-radius: 2rem;
 }
 
@@ -74,6 +75,7 @@
   width: 4rem;
   height: 4rem;
   background-color: white;
+  border: 0.2rem solid black;
   border-radius: 100%;
 }
 
@@ -89,9 +91,9 @@
 
 .HR_Card{
   border: 1px solid black;
-  width: 40rem;
+  width: 36rem;
   height: 15rem;
-  margin-left: 20rem;
+  margin-left: 22rem;
 
   display: flex;
   justify-content: center;
@@ -99,8 +101,26 @@
   align-items: center;
   margin-top: 2rem;
   background-color: palevioletred;
-  gap: 6rem;
+  gap: 1rem;
   border-radius: 2rem;
+}
+
+.btn {
+  background-color: palevioletred !important;
+  transition: all 0.3s ease-in !important;
+}
+
+.btn:hover {
+  background-color: plum!important;
+}
+
+.Send{
+  background-color: palevioletred;
+  height: 2rem
+}
+
+.Send:hover{
+  background-color: plum; 
 }
 
 .Heart{
@@ -112,30 +132,46 @@
   width: 6rem;
   height: 6rem;
   /* margin-top: 4.3rem; */
-  background-color:#ffdfdd;
+  background-color: white;
   border-radius: 5rem;
   margin-right: 1rem;
   border: 3px solid black;
   
 }
 
+.bbm{
+  font-size: 6rem;
+}
+
 .bpm{
   color: black;
   font-size: 7rem;
+  /* border: 1px solid black; */
 }
 
 .bpmu{
   color: black;
   font-size: 4rem;
+  
+}
+
+.statusbpm{
+  /* border: 1px solid black; */
+  display: flex;
+  gap: 2rem;
 }
 
 .Cd{
   /* border: 1px solid black; */
   font-size: 4rem;
   width: 50%;
+  /* height: 500px; */
+  transform: translateY(-55px);
+  height: transparent;
   /* margin-top: 30px; */
   display: flex;
-  justify-content: left;
+  flex-direction: column;
+  /* justify-content: left; */
   margin-top: 8rem;
   margin-left: 1.3rem;
 }
@@ -144,6 +180,7 @@
 
 .send{
   background-color: palevioletred;
+  
 }
 
 body{
