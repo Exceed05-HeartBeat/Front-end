@@ -266,7 +266,7 @@ function Home() {
           fontWeight: '700',
           position: 'absolute',
           top: 540,
-          left: '26%',
+          left: '25%',
           zIndex: 'tooltip',
           width: '25%',
     
