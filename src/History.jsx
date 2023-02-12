@@ -129,8 +129,8 @@ async function fetchData(params) {
       </div>
       <div style={{ textAlign: 'center' , marginTop: '20px'}}>
       <a href='/'>
-      <button className='back_button' style={{ borderRadius: '20px', padding: '10px 20px' }}>
-          <span style={{ transform: 'rotate(180deg)' }}>&larr;</span> Back
+      <button className='back_button'>
+          <span style={{ transform: 'rotate(180deg)' }}>&larr;</span> Back 
         </button>
       </a>  
       </div>

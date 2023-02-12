@@ -26,6 +26,8 @@
   background-color: #fea3aa;
   transition: all 0.3s ease-in !important;
   border-radius: 2rem;
+  font-family:inherit;
+  font-weight:bold;
 }
 
 .History:hover{
@@ -50,6 +52,7 @@
   width: 9rem;
   padding-left: 0.3cm;
   margin-bottom: 0.3rem;
+  
 }
 
 .parentBox{
@@ -88,6 +91,7 @@
 .HR{
   /* border: 1px solid black; */
   font-size: 3rem;
+  font-weight: bold;
 }
 
 .HR_Card{
@@ -100,7 +104,7 @@
   justify-content: center;
   flex-direction: row;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
   background-color: #fea3aa;
   gap: 1rem;
   border-radius: 2rem;
@@ -109,7 +113,10 @@
 .btn {
   background-color: #fea3aa !important;
   transition: all 0.3s ease-in !important;
+  font-family: inherit !important;
+  font-weight: bold !important;
 }
+
 
 .btn:hover {
   background-color: plum!important;
@@ -118,6 +125,7 @@
 .Send{
   background-color: #fea3aa;
   height: 2rem
+
 }
 
 .Send:hover{
@@ -182,6 +190,7 @@
 .send{
   background-color: #fea3aa;
   
+  
 }
 
 body{
@@ -214,3 +223,4 @@ body{
 .read-the-docs {
   color: #888;
 }
+

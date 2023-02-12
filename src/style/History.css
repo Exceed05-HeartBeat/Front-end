@@ -71,6 +71,13 @@
     margin-left: 1rem;
     background-color: #fea3aa;
     border: 0.5rem solid white;
+    font-family: inherit;
+    font-weight: bold;
+    transition: all 0.3s ease-in !important;
+  }
+
+  .button_size:hover {
+    background-color: plum;
   }
 
   .box_table {
@@ -94,7 +101,7 @@
     padding: 8px;
   }
   
-  .back-button {
+  /* .back-button {
     background-color: white;
     border: 1px solid #FEA3AA;
     border-radius: 50px;
@@ -105,13 +112,32 @@
     justify-content: center;
     cursor: pointer;
     font-size: 32px;
-  }
+  } */
 
   .back_button {
     font-size: 28px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: #fea3aa;
+    font-family: inherit;
+    font-weight: bold;
+    border: 0.25rem solid white;
+    transition: all 0.3s ease-in !important;
+    
   }
-  
+
+
+
+.back_button:hover {
+  background-color:  plum;
+}
+
+
   .back-button:before {
     content: "\2190";
     margin-right: 10px;
   }
+
+
+
+  

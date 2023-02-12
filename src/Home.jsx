@@ -205,9 +205,11 @@ function Home() {
       </Grid> 
       <Grid item xs={6}>
         <br></br>
+
       <Button onClick={Submit} className={"btn"} variant="contained" endIcon={<SendIcon />}>
         
         Send
+
       </Button>
       </Grid>
         </Grid>
@@ -246,8 +248,6 @@ function Home() {
       <div className='parentBox'>
         <div className='box'>
         <div className='status' style={status ? null: redBox}>
-         
-          
           </div>
           <div>
           Normal
@@ -255,7 +255,6 @@ function Home() {
         </div>
         <div className='box'>
         <div className='status' style={status ? redBox : null}>
-          
           </div>
           <div>
           Exercise
