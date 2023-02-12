@@ -274,7 +274,7 @@ function Home() {
         {bpm == -1 ? 
             <div className='Cd' >
                 <span className='bbm' >??? <span className='bpmu'>bpm</span></span> 
-                <span>Not input</span>
+                <span>No input</span>
             </div> : 
             <div className='Cd' >
                 <span className='bbm' >{bpm}  <span className='bpmu'>bpm</span></span> 
